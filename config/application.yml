@@ -1,0 +1,8 @@
+PORT: "3000"
+RAILS_ENV: "development"
+RAILS_MAX_THREADS: 5
+FRONT_END_HOST: "http://localhost:3001"
+DEV_DATABASE: "ceap_api_development"
+DB_USERNAME: "natalianegres"
+DB_PASSWORD: "pm11081016"
+REDIS_URL: "redis://localhost:6379/4"
