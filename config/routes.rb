@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
-  resources :deputies
-  resources :expenses
-  resources :expense_types
-  resources :providers
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount ActionCable.server => '/cable'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  if Rails.env.development?
+    require 'sidekiq/web'
+
+    Sidekiq::Web.use ActionDispatch::Cookies
+    Sidekiq::Web.use ActionDispatch::Session::CookieStore, key: '_interslice_session'
+
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  defaults format: :json do
+    resources :deputies, only: %i[show index] do
+      member do
+        get 'expenses', action: 'expenses'
+      end
+    end
+
+    post 'import_file' => 'import_file'
+  end
 end
