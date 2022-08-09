@@ -1,16 +1,15 @@
 development:
   :verbose: true
-:concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 1 %>
+  :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 1 %>
 staging:
   :verbose: true
   :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 1 %>
-  production:
+production:
   :verbose: true
-:concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 1 %>
-:timeout: 8
+  :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 1 %>
+  :timeout: 8
 
 :queues:
-  - critical
   - default
   - low
   - mailers
