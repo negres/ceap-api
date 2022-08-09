@@ -85,7 +85,6 @@ group :test do
 end
 
 group :production do
-  gem 'honeybadger'                           # Track and report errors triggered by your application.
   gem 'rack-timeout'                          # Abort requests that are taking too long
   gem 'redis'                                 # A Ruby client that tries to match Redis' API one-to-one, while still providing an idiomatic interface.
 end
