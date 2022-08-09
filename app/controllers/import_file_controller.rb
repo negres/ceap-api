@@ -1,7 +1,5 @@
 class ImportFileController < ApplicationController
   respond_to :json
-  include ReadCsvFile
-
 
   def import_file
     file = params[:file].path.to_s
