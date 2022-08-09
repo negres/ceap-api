@@ -14,10 +14,4 @@ class Deputy < ApplicationRecord
       url_photo: "https://www.camara.leg.br/internet/deputado/bandep/#{row[2]}.jpg"
     )
   end
-
-  def total_expenses
-    Deputy.joins(:expenses)
-          .select('deputies.*, sum(expenses.net_value) as total')
-          .group('deputies.id')
-  end
 end

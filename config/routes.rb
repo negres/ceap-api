@@ -17,6 +17,16 @@ Rails.application.routes.draw do
       end
     end
 
-    post 'import_file' => 'import_file'
+    # resources :import_file, only: [] do
+    #   collection do
+    #     post 'import_file', action: 'import_file'
+    #   end
+    # end
+
+    post 'import_file'=> 'import_file'
+
+
   end
+
+    # get 'vaquinha/:id' => 'vakinhas#show', as: :vaquinha
 end
