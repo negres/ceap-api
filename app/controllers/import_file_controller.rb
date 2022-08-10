@@ -2,9 +2,15 @@ class ImportFileController < ApplicationController
   respond_to :json
 
   def import_file
-    file = params[:file].path.to_s
+    ceap = Ceap.find_by(year: params[:year]).present?
 
-    CsvReaderWorker::ReaderFileWorker.perform_in(1.second, file)
-    render status: :created, json: { message: 'arquivo criado com sucesso!' }
+    if params[:file].present? && !ceap
+      file = params[:file].path.to_s
+      CreateDataService.new.call(file, params[:year])
+
+      render status: :created, json: { message: 'arquivo criado com sucesso!' }
+    else
+      render status: :bad_request, json: {}
+    end
   end
 end
