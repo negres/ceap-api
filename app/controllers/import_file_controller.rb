@@ -6,9 +6,12 @@ class ImportFileController < ApplicationController
 
     if params[:file].present? && !ceap
       file = params[:file].path.to_s
-      CreateDataService.new.call(file, params[:year])
+      email = params[:email]
+      ceap_year = params[:year]
 
-      render status: :created, json: { message: 'arquivo criado com sucesso!' }
+      ReadCsvFileWorker::TransformData.perform_async(file, ceap_year, email)
+
+      render status: :ok, json: {}
     else
       render status: :bad_request, json: {}
     end
