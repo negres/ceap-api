@@ -27,7 +27,7 @@ Você já ouviu falar da CEAP? A Cota para o Exercício da Atividade Parlamentar
 
 ### Necessário 
 
-Clonar o repositório onde está o frontend da API:
+Clonar o repositório onde está o frontend da aplicação:
 - https://github.com/negres/ceap-web
 ```git@github.com:negres/ceap-web.git```
 - Adicione as dependências rodando o comando:
