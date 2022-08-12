@@ -27,6 +27,15 @@ Você já ouviu falar da CEAP? A Cota para o Exercício da Atividade Parlamentar
 
 ### Necessário 
 
+Clonar o repositório onde está o frontend da API:
+- https://github.com/negres/ceap-web
+```git@github.com:negres/ceap-web.git```
+- Adicione as dependências rodando o comando:
+    ```yarn```
+- Inicie o servidor
+  ```yarn dev```
+
+
 Para rodar o projeto é necessário ter:
 
   1. Ruby 3.0.2
