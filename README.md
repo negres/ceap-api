@@ -64,4 +64,5 @@ Adicione as variaveis de ambiente de acordo com o arquivo ```application.example
 
 ```
   $ rails s
+  $ bundle exec sidekiq
 ```
